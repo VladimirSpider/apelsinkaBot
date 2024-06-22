@@ -83,8 +83,8 @@ exports.charactersMenu = [
 exports.itemMenu = [
     ['◀◀ Пред.', 'prev'],
     ['След. ▶▶', 'next'],
-    // ['Все фото', 'allPhotos'],
-    ['📞 Связаться с нами', `https://viber.click/${constants_1.managerNumber}`],
+    ['📞Связаться(viber)', `https://viber.click/${constants_1.managerNumber}`],
+    ['📞Связаться(telegram)', `tg://user?id=${constants_1.managerId}`],
 ];
 exports.showsMenu = [
     ['🎁 Серебряная дискотека', 'silverDisco'],

@@ -7,7 +7,7 @@ const getButtonsPagination_1 = require("./getButtonsPagination");
 const getInlineKeyboard = (data) => {
     const { buttonsArray, column, back } = data;
     const buttons = buttonsArray.map(([name, innerName]) => {
-        if (innerName.match(constants_1.urlCheck)) {
+        if (innerName.match(constants_1.urlCheck) || innerName.match(constants_1.urlTgCheck)) {
             return grammy_1.InlineKeyboard.url(name, innerName);
         }
         else {

@@ -21,6 +21,7 @@ import {
     stickerHippo,
     stickerCatInGlasses,
     managerNumber,
+    managerId,
     pageSize,
     mainPagePoint,
     charactersPoint,
@@ -141,9 +142,9 @@ const mainInlineKeyBoard = new InlineKeyboard()
     .text('🪁 Мастер-классы', masterClassesPoint)
     .url('📷 Instagram', 'https://www.instagram.com/apelsinka_minsk/')
     .row()
-    .url('📞 Связаться с нами(viber)', `https://viber.click/${managerNumber}`)
+    .url('📞Связаться(viber)', `https://viber.click/${managerNumber}`)
     .row()
-    .url('📞 Связаться с нами(telegram)', `tg://user?id=914480354`)
+    .url('📞Связаться(telegram)', `tg://user?id=${managerId}`)
     .row();
 
 const inlineKeyboardCharactersMenu = getInlineKeyboard({

@@ -4,8 +4,10 @@ export const stickerMole = 'CAACAgIAAxkBAAEF4vlmXtkjDQ8OCbPmmiYuKiFAK0QMjgACQQAD
 export const stickerHippo = 'CAACAgIAAxkBAAEF4vtmXtlEFvB9fj9ibmDSrIu2m9gIlAACNQEAAjDUnRG0uDX9ZqC2fDUE';
 export const stickerCatInGlasses = 'CAACAgQAAxkBAAEF4wVmXtmCV0WhBfaNWj1GTWDjZIdlbgAC2wcAAm2XuFGYPUTyal0iaDUE';
 export const managerNumber = '375293030068';
+export const managerId = '917868899';
 
 export const urlCheck = /^http/gi;
+export const urlTgCheck = /^tg/gi;
 export const findCurrentPage = /(?<=_)\d+/;
 export const findCurrentCharacter = /(?<=_)[a-zA-Z]+/;
 export const findCurrentType = /[a-zA-Z]+(?=_)/;

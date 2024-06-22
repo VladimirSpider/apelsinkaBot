@@ -1,6 +1,6 @@
 import { InlineKeyboard } from "grammy";
 
-import { urlCheck } from "../constants/constants";
+import { urlCheck, urlTgCheck } from "../constants/constants";
 import { getButtonsPagination } from "./getButtonsPagination";
 
 interface IInlineKeyBoard {
@@ -22,7 +22,7 @@ interface IInlineKeyBoardWithPagination {
 export const getInlineKeyboard = (data: IInlineKeyBoard) => {
     const {buttonsArray, column, back} = data;
     const buttons = buttonsArray.map(([name, innerName]) => {
-        if(innerName.match(urlCheck)) {
+        if(innerName.match(urlCheck) || innerName.match(urlTgCheck)) {
             return InlineKeyboard.url(name, innerName);
         } else {
             return InlineKeyboard.text(name, innerName);

@@ -73,9 +73,9 @@ const mainInlineKeyBoard = new grammy_1.InlineKeyboard()
     .text('🪁 Мастер-классы', constants_1.masterClassesPoint)
     .url('📷 Instagram', 'https://www.instagram.com/apelsinka_minsk/')
     .row()
-    .url('📞 Связаться с нами(viber)', `https://viber.click/${constants_1.managerNumber}`)
+    .url('📞Связаться(viber)', `https://viber.click/${constants_1.managerNumber}`)
     .row()
-    .url('📞 Связаться с нами(telegram)', `tg://user?id=914480354`)
+    .url('📞Связаться(telegram)', `tg://user?id=${constants_1.managerId}`)
     .row();
 const inlineKeyboardCharactersMenu = (0, getInlineKeyboard_1.getInlineKeyboard)({
     buttonsArray: keyboardButtons_1.charactersMenu,

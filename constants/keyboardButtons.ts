@@ -1,5 +1,6 @@
 import {
     managerNumber,
+    managerId,
     characterTypeAll,
     characterTypeMale,
     characterTypeFemale,
@@ -93,8 +94,8 @@ export const charactersMenu: string[][] = [
 export const itemMenu: string[][] = [
     ['◀◀ Пред.', 'prev'],
     ['След. ▶▶', 'next'],
-    // ['Все фото', 'allPhotos'],
-    ['📞 Связаться с нами', `https://viber.click/${managerNumber}`],
+    ['📞Связаться(viber)', `https://viber.click/${managerNumber}`],
+    ['📞Связаться(telegram)', `tg://user?id=${managerId}`],
 ];
 
 export const showsMenu: string[][] = [
