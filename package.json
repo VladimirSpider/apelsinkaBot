@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "@types/pg": "^8.11.6",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@grammyjs/emoji": "^1.2.0",
+    "@grammyjs/hydrate": "^1.4.1",
+    "@grammyjs/menu": "^1.2.1",
+    "@grammyjs/storage-psql": "^2.4.2",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.23.0"
+  }
+}
