@@ -3,7 +3,7 @@ import { IGoodsData } from "../interfaces/goods";
 export const charactersData: IGoodsData = {
     'marshall': {
         name: 'Маршал',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['marshall1']
     },
     'chase': {
@@ -36,12 +36,12 @@ export const charactersData: IGoodsData = {
     },
     'hulk': {
         name: 'Халк',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['hulk1']
     },
     'ironMan': {
         name: 'Железный человек',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['ironMan1']
     },
     'superWoman': {
@@ -54,17 +54,17 @@ export const charactersData: IGoodsData = {
     },
     'ninjaTurtle': {
         name: 'Черепашка ниндзя',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['ninjaTurtle1']
     },
     'sonic': {
         name: 'Соник',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['sonic1']
     },
     'ninjago': {
         name: 'Ниндзяго',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['ninjago1']
     },
     'alette': {
@@ -76,7 +76,7 @@ export const charactersData: IGoodsData = {
     },
     'amongUs': {
         name: 'Амонг Ас',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['amongUs1']
     },
     'mermaid': {
@@ -88,42 +88,42 @@ export const charactersData: IGoodsData = {
     },
     'dinosaurToothy': {
         name: 'Динозавр зубастик',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['dinosaurToothy1']
     },
     'misterNightmareous': {
         name: 'Мистер кошмариус',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['misterNightmareous1']
     },
     'researcher': {
         name: 'Исследователь',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['researcher1']
     },
     'clownLala': {
         name: 'Клоун Ляля',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['clownLala1']
     },
     'lolDoll': {
         name: 'Кукла Лол',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['lolDoll1']
     },
     'minecraft': {
         name: 'Майнкрафт',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['minecraft1']
     },
     'masha': {
         name: 'Маша',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['masha1']
     },
     'minions': {
         name: 'Миньон',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['minions1']
     },
     'bunny': {
@@ -158,202 +158,202 @@ export const charactersData: IGoodsData = {
     },
     'barbieAndKen': {
         name: 'Барби и Кен',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['barbieAndKen1']
     },
     'indians': {
         name: 'Индейцы',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['indians1']
     },
     'ladyBugAndSuperCat': {
         name: 'Леди Баг и Супер Кот',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['ladyBugAndSuperCat1']
     },
     'minnieMouse': {
         name: 'Минни Маус',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['minnieMouse1']
     },
     'princeAndAriel': {
         name: 'Принц и Ариэль',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['princeAndAriel1']
     },
     'hedgehogVyacheslav': {
         name: 'Ёжик Вячеслав',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['hedgehogVyacheslav1']
     },
     'moana': {
         name: 'Моана',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['moana1']
     },
     'lightningMCQUEEN': {
         name: 'Молния Маквин',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['lightningMCQUEEN1']
     },
     'nyushenka': {
         name: 'Нюшенька',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['nyushenka1']
     },
     'petronella': {
         name: 'Петронелла',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['petronella1']
     },
     'pirateMary': {
         name: 'Пиратка Мэри',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['pirateMary1']
     },
     'pirate': {
         name: 'Пират',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['pirate1']
     },
     'pirates': {
         name: 'Пираты',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['pirates1']
     },
     'girlfriendWednesday': {
         name: 'Подруга Уэнсдей',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['girlfriendWednesday1']
     },
     'remember': {
         name: 'Помни',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['remember1']
     },
     'princessJasmine': {
         name: 'Принцесса Жасмин',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['princessJasmine1']
     },
     'unicornSparkle': {
         name: 'Единорожка Искорка',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['unicornSparkle1']
     },
     'pinkiePie': {
         name: 'Пинки Пай',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['pinkiePie1']
     },
     'princessCelestia': {
         name: 'Принцесса Селестия',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['princessCelestia1']
     },
     'robocarPoli': {
         name: 'Робокар Полли',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['robocarPoli1']
     },
     'robocarAmber': {
         name: 'Робокар Эмбер',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['robocarAmber1']
     },
     'peppaPig': {
         name: 'Свинка Пеппа',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['peppaPig1']
     },
     'blueTractor': {
         name: 'Синий трактор',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['blueTractor1']
     },
     'tikTok': {
         name: 'Тик Ток',
-        description: 'Описание',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['tikTok1']
     },
     'kittenKorzhik': {
         name: 'Котёнок Коржик',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['kittenKorzhik1']
     },
     'kittyCaramel': {
         name: 'Кошечка Карамелька',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['kittyCaramel1']
     },
     'kittenCompote': {
         name: 'Котёнок Компот',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['kittenCompote1']
     },
     'troll': {
         name: 'Тролль',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['troll1']
     },
     'smartProfessor': {
         name: 'Умный профессор',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['smartProfessor1']
     },
     'wednesday': {
         name: 'Уэнсдей',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['wednesday1']
     },
     'fjok': {
         name: 'Фьёк',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['fjok1']
     },
     'faerie': {
         name: 'Фея',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['faerie1']
     },
     'fixies': {
         name: 'Фиксики',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['fixies1']
     },
     'anna': {
         name: 'Анна',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['anna1']
     },
     'elsa': {
         name: 'Эльза',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['elsa1']
     },
     'winnieTheWitch': {
         name: 'Ведьмочка Винни',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['winnieTheWitch1']
     },
     'vi': {
         name: 'Ви',
-        description: 'Описание',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['vi1']
     },
     'shelleyBrawlStars': {
         name: 'Шелли brawl stars',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['shelleyBrawlStars1']
     },
     'cheburashka': {
         name: 'Чебурашка',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['cheburashka1']
     },
     'mischiefMakers': {
         name: 'Шкодники',
-        description: 'Если у вас есть какие нибудь свяжитесь с нами 📞 🤗',
+        description: 'Если у вас есть какие нибудь вопросы свяжитесь с нами 📞 🤗',
         images: ['mischiefMakers1']
     },
 }
