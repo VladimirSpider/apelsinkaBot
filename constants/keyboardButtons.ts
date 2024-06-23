@@ -92,8 +92,8 @@ export const charactersMenu: string[][] = [
 ];
 
 export const itemMenu: string[][] = [
-    ['◀◀ Пред.', 'prev'],
-    ['След. ▶▶', 'next'],
+    ['◀◀ Пред. фото', 'prev'],
+    ['След. фото ▶▶', 'next'],
     ['📞Связаться(viber)', `https://viber.click/${managerNumber}`],
     ['📞Связаться(telegram)', `tg://user?id=${managerId}`],
 ];

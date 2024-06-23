@@ -81,8 +81,8 @@ exports.charactersMenu = [
     ['🐥 Ростовые куклы', constants_1.characterTypeBigDoll],
 ];
 exports.itemMenu = [
-    ['◀◀ Пред.', 'prev'],
-    ['След. ▶▶', 'next'],
+    ['◀◀ Пред. фото', 'prev'],
+    ['След. фото ▶▶', 'next'],
     ['📞Связаться(viber)', `https://viber.click/${constants_1.managerNumber}`],
     ['📞Связаться(telegram)', `tg://user?id=${constants_1.managerId}`],
 ];
