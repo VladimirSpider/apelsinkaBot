@@ -89,6 +89,7 @@ export const charactersMenu: string[][] = [
     ['👦 Mужские образы', characterTypeMale],
     ['👫 Универсальные образы', characterTypeUniversal],
     ['🐥 Ростовые куклы', characterTypeBigDoll],
+    ['🤗 Больше фото', 'https://disk.yandex.ru/d/N7C7ts1D9fCvgg'],
 ];
 
 export const itemMenu: string[][] = [

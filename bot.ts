@@ -9,7 +9,7 @@ import {
     SessionFlavor,
     HttpError,
     GrammyError} from "grammy";
-import { BOT_TOKEN} from "./token";
+import 'dotenv/config';
 import { EmojiFlavor, emojiParser } from "@grammyjs/emoji";
 import { hydrate, HydrateFlavor } from "@grammyjs/hydrate";
 import { getCharactersButtons } from "./helpers/getCharactersButtons";
@@ -90,8 +90,8 @@ const stickers: string[] = [
 ];
 
 type MyContext = EmojiFlavor & HydrateFlavor<Context> & Context & SessionFlavor<SessionData>;
-
-const bot = new Bot<MyContext>(BOT_TOKEN);
+const { BOT_TOKEN } = process.env;
+const bot = new Bot<MyContext>(BOT_TOKEN ?? '');
 
 const createInitialSessionData = () => {
     return {

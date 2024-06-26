@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const grammy_1 = require("grammy");
-const token_1 = require("./token");
+require("dotenv/config");
 const emoji_1 = require("@grammyjs/emoji");
 const hydrate_1 = require("@grammyjs/hydrate");
 const getCharactersButtons_1 = require("./helpers/getCharactersButtons");
@@ -30,7 +30,8 @@ const stickers = [
     constants_1.stickerHippo,
     constants_1.stickerCatInGlasses
 ];
-const bot = new grammy_1.Bot(token_1.BOT_TOKEN);
+const { BOT_TOKEN } = process.env;
+const bot = new grammy_1.Bot(BOT_TOKEN !== null && BOT_TOKEN !== void 0 ? BOT_TOKEN : '');
 const createInitialSessionData = () => {
     return {
         using: false,

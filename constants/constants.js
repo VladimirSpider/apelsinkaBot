@@ -14,7 +14,7 @@ exports.findCurrentPage = /(?<=_)\d+/;
 exports.findCurrentCharacter = /(?<=_)[a-zA-Z]+/;
 exports.findCurrentType = /[a-zA-Z]+(?=_)/;
 exports.findNumberPageOnPage = /(?<=Страница\s)\d+/;
-exports.pageSize = 4;
+exports.pageSize = 8;
 exports.mainPagePoint = 'mainPage';
 exports.charactersPoint = 'characters';
 exports.showsPoint = 'shows';

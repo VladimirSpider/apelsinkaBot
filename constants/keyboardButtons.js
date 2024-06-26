@@ -79,6 +79,7 @@ exports.charactersMenu = [
     ['👦 Mужские образы', constants_1.characterTypeMale],
     ['👫 Универсальные образы', constants_1.characterTypeUniversal],
     ['🐥 Ростовые куклы', constants_1.characterTypeBigDoll],
+    ['🤗 Больше фото', 'https://disk.yandex.ru/d/N7C7ts1D9fCvgg'],
 ];
 exports.itemMenu = [
     ['◀◀ Пред. фото', 'prev'],
