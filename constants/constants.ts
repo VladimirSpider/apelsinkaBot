@@ -7,6 +7,9 @@ export const stickerCatInGlasses = 'CAACAgQAAxkBAAEF4wVmXtmCV0WhBfaNWj1GTWDjZIdl
 export const managerNumber = '375293030068';
 export const managerId = '917868899';
 
+export const secretWordGeneral = 'getInformationGeneral';
+export const secretWordDetail = 'getInformationDetail';
+
 export const urlCheck = /^http/gi;
 export const urlTgCheck = /^tg/gi;
 export const findCurrentPage = /(?<=_)\d+/;

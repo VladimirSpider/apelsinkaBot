@@ -40,6 +40,8 @@ import {
     characterTypeBigDoll,
     prev,
     next,
+    secretWordGeneral,
+    secretWordDetail,
 } from "./constants/constants";
 import {
     getInlineKeyboard,
@@ -80,6 +82,16 @@ interface SessionData {
     currentItem: string;
     back: string;
 }
+interface IUser {
+    id: string,
+    userNick: string,
+    userName: string
+}
+interface IUsers {
+    [key: string]: IUser
+}
+
+const users: IUsers = {};
 
 const stickers: string[] = [
     stickerBear,
@@ -312,7 +324,25 @@ const programsButtonsInnerName = getInnerNameButtons(programsMenu);
 const additionsButtonsInnerName = getInnerNameButtons(additionsMenu);
 const masterClassesButtonsInnerName = getInnerNameButtons(masterClassesMenu);
 
+const addUser = (id: number | undefined,
+                 nick: string | undefined,
+                 name: string | undefined) => {
+    const userId: string = String(id);
+    const userNick: string = nick || 'ник отсутствует';
+    const userName: string = name || 'имя отсутствует';
+    if(!(userId in users)) {
+        users[userId] = {
+            id: userId,
+            userNick,
+            userName
+        };
+    }
+};
+
 bot.command("start", async (ctx) => {
+    if(ctx.from) {
+        addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
+    }
     const hibiscus = ctx.emoji`${"hibiscus"}`;
     const userName: string = ctx.from ? ctx.from.first_name : 'дорогой пользователь';
 
@@ -887,6 +917,9 @@ bot.callbackQuery([prev, next], async (ctx) => {
 bot.on('callback_query:data', async (ctx) => {
     switch (ctx.callbackQuery.data) {
         case masterClassesPoint:
+            if(ctx.from) {
+                addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
+            }
             ctx.callbackQuery.message &&
             await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${masterClassesPagesCount}</b>\n${masterClassesPage}`, {
                 parse_mode: 'HTML',
@@ -895,6 +928,9 @@ bot.on('callback_query:data', async (ctx) => {
             await ctx.answerCallbackQuery();
             break;
         case programsPoint:
+            if(ctx.from) {
+                addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
+            }
             ctx.callbackQuery.message &&
             await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${programsPagesCount}</b>\n${programsPage}`, {
                 parse_mode: 'HTML',
@@ -903,6 +939,9 @@ bot.on('callback_query:data', async (ctx) => {
             await ctx.answerCallbackQuery();
             break;
         case additionsPoint:
+            if(ctx.from) {
+                addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
+            }
             ctx.callbackQuery.message &&
             await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${additionsPagesCount}</b>\n${additionsPage}`, {
                 parse_mode: 'HTML',
@@ -911,6 +950,9 @@ bot.on('callback_query:data', async (ctx) => {
             await ctx.answerCallbackQuery();
             break;
         case showsPoint:
+            if(ctx.from) {
+                addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
+            }
             if(ctx.session.using) {
                 ctx.session.using = false;
                 ctx.session.currentItemNumber = 1;
@@ -935,7 +977,9 @@ bot.on('callback_query:data', async (ctx) => {
             await ctx.answerCallbackQuery();
             break;
         case charactersPoint:
-
+            if(ctx.from) {
+                addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
+            }
             ctx.callbackQuery.message &&
             await ctx.callbackQuery.message.editText(charactersPage, {
                 parse_mode: 'HTML',
@@ -997,6 +1041,26 @@ bot.on('callback_query:data', async (ctx) => {
             await ctx.answerCallbackQuery();
             break;
     }
+});
+
+bot.hears(secretWordGeneral, async (ctx) => {
+    const numberUsers: number = Object.keys(users).length;
+    await ctx.reply(`Количество пользователей заходивших в бот: ${numberUsers}`);
+});
+
+bot.hears(secretWordDetail, async (ctx) => {
+    const numberUsers: number = Object.keys(users).length;
+    let text: string = '';
+
+    for (let key in users) {
+        text += `\n\n
+        Пользователь: ${users[key].id}
+        Ник: ${users[key].userNick}
+        Имя: ${users[key].userName}
+        `;
+    }
+
+    await ctx.reply(`Количество пользователей заходивших в бот: ${numberUsers}${text}`);
 });
 
 bot.on("message", async (ctx) => {
