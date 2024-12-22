@@ -74,6 +74,12 @@ exports.characters = [
     ['Шкодники', 'mischiefMakers', { flag: constants_1.characterTypeUniversal }],
     ['Бамблби', 'bumblebee', { flag: constants_1.characterTypeMale }],
     ['Гарри Поттер и Гермиона', 'harryPotterAndHermione', { flag: constants_1.characterTypeUniversal }],
+    ['Малефисента', 'maleficent', { flag: constants_1.characterTypeFemale }],
+    ['Марио', 'mario', { flag: constants_1.characterTypeMale }],
+    ['Гринч', 'grinch', { flag: constants_1.characterTypeMale }],
+    ['Баба Яга', 'babaYaga', { flag: constants_1.characterTypeUniversal }],
+    ['Кейн', 'kane', { flag: constants_1.characterTypeMale }],
+    ['Буба', 'booba', { flag: constants_1.characterTypeUniversal }],
 ];
 exports.charactersMenu = [
     ['🎁 Все', constants_1.characterTypeAll],

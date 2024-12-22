@@ -83,6 +83,12 @@ export const characters: (string | ICharactersFlag)[][] = [
     ['Шкодники', 'mischiefMakers', {flag: characterTypeUniversal}],
     ['Бамблби', 'bumblebee', {flag: characterTypeMale}],
     ['Гарри Поттер и Гермиона', 'harryPotterAndHermione', {flag: characterTypeUniversal}],
+    ['Малефисента', 'maleficent', {flag: characterTypeFemale}],
+    ['Марио', 'mario', {flag: characterTypeMale}],
+    ['Гринч', 'grinch', {flag: characterTypeMale}],
+    ['Баба Яга', 'babaYaga', {flag: characterTypeUniversal}],
+    ['Кейн', 'kane', {flag: characterTypeMale}],
+    ['Буба', 'booba', {flag: characterTypeUniversal}],
 ];
 
 export const charactersMenu: string[][] = [
