@@ -8,6 +8,9 @@ export const getCharactersButtons = (buttons: (string| ICharactersFlag)[][], fla
     } else {
         const buttonsWithFlag: string[][] = [];
         buttons.forEach(([name, innerName, label]) => {
+            if(typeof label === 'object' && label.novelty) {
+                buttonsWithFlag.push([String(name), `${flag}_${String(innerName)}`]);
+            }
             if(typeof label === 'object' && label.flag === flag) {
                 buttonsWithFlag.push([String(name), `${flag}_${String(innerName)}`]);
             }

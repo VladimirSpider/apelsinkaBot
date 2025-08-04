@@ -38,6 +38,7 @@ import {
     characterTypeFemale,
     characterTypeUniversal,
     characterTypeBigDoll,
+    characterTypeNovelties,
     prev,
     next,
     secretWordGeneral,
@@ -49,6 +50,7 @@ import {
 } from "./helpers/getInlineKeyboard";
 import {
     characters,
+    noveltiesCharacters,
     charactersMenu,
     itemMenu,
     showsMenu,
@@ -60,6 +62,7 @@ import {
     mainPage,
     charactersPage,
     bigDollCharactersPage,
+    noveltiesCharactersPage,
     universalCharactersPage,
     femaleCharactersPage,
     maleCharactersPage,
@@ -166,12 +169,14 @@ const inlineKeyboardCharactersMenu = getInlineKeyboard({
 });
 
 const allCharactersButtons = getCharactersButtons(characters);
+const noveltiesCharactersButtons = getCharactersButtons(noveltiesCharacters, characterTypeNovelties);
 const maleCharactersButtons = getCharactersButtons(characters, characterTypeMale);
 const femaleCharactersButtons = getCharactersButtons(characters, characterTypeFemale);
 const universalCharactersButtons = getCharactersButtons(characters, characterTypeUniversal);
 const bigDollCharactersButtons = getCharactersButtons(characters, characterTypeBigDoll);
 
 const allCharactersPagesCount = getPagesCount(allCharactersButtons.length, pageSize);
+const noveltiesCharactersPagesCount = getPagesCount(noveltiesCharactersButtons.length, pageSize);
 const maleCharactersPagesCount = getPagesCount(maleCharactersButtons.length, pageSize);
 const femaleCharactersPagesCount = getPagesCount(femaleCharactersButtons.length, pageSize);
 const universalCharactersPagesCount = getPagesCount(universalCharactersButtons.length, pageSize);
@@ -217,6 +222,14 @@ const inlineKeyboardBigDollCharacters = getInlineKeyboardWithPagination({
     column: 2,
     back: charactersPoint,
 });
+const inlineKeyboardNoveltiesCharacters = getInlineKeyboardWithPagination({
+    buttonsArray: noveltiesCharactersButtons,
+    buttonType: characterTypeNovelties,
+    pageSize: pageSize,
+    pagesCount: noveltiesCharactersPagesCount,
+    column: 2,
+    back: charactersPoint,
+});
 
 const allCharactersButtonsPagination = getInnerNameButtons(
     getButtonsPagination({
@@ -254,11 +267,19 @@ const bigDollCharactersButtonsPagination = getInnerNameButtons(
     })
 );
 
+const noveltiesCharactersButtonsPagination = getInnerNameButtons(
+    getButtonsPagination({
+        pagesCount: noveltiesCharactersPagesCount,
+        buttonType: characterTypeNovelties
+    })
+);
+
 const allCharactersButtonsInnerName = getInnerNameButtons(allCharactersButtons);
 const maleCharactersButtonsInnerName = getInnerNameButtons(maleCharactersButtons);
 const femaleCharactersButtonsInnerName = getInnerNameButtons(femaleCharactersButtons);
 const universalCharactersButtonsInnerName = getInnerNameButtons(universalCharactersButtons);
 const bigDollCharactersButtonsInnerName = getInnerNameButtons(bigDollCharactersButtons);
+const noveltiesCharactersButtonsInnerName = getInnerNameButtons(noveltiesCharactersButtons);
 
 const inlineKeyboardShowMenu = getInlineKeyboard({
     buttonsArray: showsMenu,
@@ -622,6 +643,59 @@ bot.callbackQuery(bigDollCharactersButtonsPagination, async (ctx) => {
     await ctx.answerCallbackQuery();
 });
 
+bot.callbackQuery(noveltiesCharactersButtonsPagination, async (ctx) => {
+    if(ctx.session.using) {
+        ctx.session.using = false;
+        ctx.session.currentItemNumber = 1;
+        ctx.session.itemsQuantity = 0;
+        ctx.session.currentType = '';
+        ctx.session.currentItem = '';
+        ctx.session.back = '';
+    }
+
+    const currentPage = ctx.callbackQuery.data.match(findCurrentPage);
+
+    if(!ctx.callbackQuery.message?.text && currentPage) {
+        const inlineKeyboard = getInlineKeyboardWithPagination({
+            buttonsArray: noveltiesCharactersButtons,
+            buttonType: characterTypeNovelties,
+            pageSize: pageSize,
+            pagesCount: noveltiesCharactersPagesCount,
+            column: 2,
+            back: charactersPoint,
+            currentPage: Number(currentPage[0]),
+        });
+        await ctx.reply(`<b>Страница ${currentPage[0]} из ${noveltiesCharactersPagesCount}</b>\n${noveltiesCharactersPage}`, {
+            parse_mode: 'HTML',
+            reply_markup: inlineKeyboard,
+        });
+        await ctx.deleteMessage();
+    }
+
+    if(ctx.callbackQuery.message?.text) {
+        const pageText = ctx.callbackQuery.message.text;
+        const numberPageOnPage = pageText.match(findNumberPageOnPage);
+        if(numberPageOnPage && currentPage) {
+            if(currentPage[0] !== numberPageOnPage[0]) {
+                const inlineKeyboard = getInlineKeyboardWithPagination({
+                    buttonsArray: noveltiesCharactersButtons,
+                    buttonType: characterTypeNovelties,
+                    pageSize: pageSize,
+                    pagesCount: noveltiesCharactersPagesCount,
+                    column: 2,
+                    back: charactersPoint,
+                    currentPage: Number(currentPage[0]),
+                });
+                await ctx.callbackQuery.message.editText(`<b>Страница ${currentPage[0]} из ${noveltiesCharactersPagesCount}</b>\n${noveltiesCharactersPage}`, {
+                    parse_mode: 'HTML',
+                    reply_markup: inlineKeyboard,
+                });
+            }
+        }
+    }
+    await ctx.answerCallbackQuery();
+});
+
 bot.callbackQuery(programsButtonsPagination, async (ctx) => {
     if(ctx.session.using) {
         ctx.session.using = false;
@@ -787,6 +861,7 @@ bot.callbackQuery([
     ...femaleCharactersButtonsInnerName,
     ...universalCharactersButtonsInnerName,
     ...bigDollCharactersButtonsInnerName,
+    ...noveltiesCharactersButtonsInnerName,
     ...programsButtonsInnerName,
     ...additionsButtonsInnerName,
     ...masterClassesButtonsInnerName,
@@ -1037,6 +1112,14 @@ bot.on('callback_query:data', async (ctx) => {
             await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${bigDollCharactersPagesCount}</b>\n${bigDollCharactersPage}`, {
                 parse_mode: 'HTML',
                 reply_markup: inlineKeyboardBigDollCharacters,
+            });
+            await ctx.answerCallbackQuery();
+            break;
+        case characterTypeNovelties:
+            ctx.callbackQuery.message &&
+            await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${noveltiesCharactersPagesCount}</b>\n${noveltiesCharactersPage}`, {
+                parse_mode: 'HTML',
+                reply_markup: inlineKeyboardNoveltiesCharacters,
             });
             await ctx.answerCallbackQuery();
             break;

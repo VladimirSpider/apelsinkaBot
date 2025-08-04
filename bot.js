@@ -85,11 +85,13 @@ const inlineKeyboardCharactersMenu = (0, getInlineKeyboard_1.getInlineKeyboard)(
     back: constants_1.mainPagePoint,
 });
 const allCharactersButtons = (0, getCharactersButtons_1.getCharactersButtons)(keyboardButtons_1.characters);
+const noveltiesCharactersButtons = (0, getCharactersButtons_1.getCharactersButtons)(keyboardButtons_1.noveltiesCharacters, constants_1.characterTypeNovelties);
 const maleCharactersButtons = (0, getCharactersButtons_1.getCharactersButtons)(keyboardButtons_1.characters, constants_1.characterTypeMale);
 const femaleCharactersButtons = (0, getCharactersButtons_1.getCharactersButtons)(keyboardButtons_1.characters, constants_1.characterTypeFemale);
 const universalCharactersButtons = (0, getCharactersButtons_1.getCharactersButtons)(keyboardButtons_1.characters, constants_1.characterTypeUniversal);
 const bigDollCharactersButtons = (0, getCharactersButtons_1.getCharactersButtons)(keyboardButtons_1.characters, constants_1.characterTypeBigDoll);
 const allCharactersPagesCount = (0, getPagesCount_1.getPagesCount)(allCharactersButtons.length, constants_1.pageSize);
+const noveltiesCharactersPagesCount = (0, getPagesCount_1.getPagesCount)(noveltiesCharactersButtons.length, constants_1.pageSize);
 const maleCharactersPagesCount = (0, getPagesCount_1.getPagesCount)(maleCharactersButtons.length, constants_1.pageSize);
 const femaleCharactersPagesCount = (0, getPagesCount_1.getPagesCount)(femaleCharactersButtons.length, constants_1.pageSize);
 const universalCharactersPagesCount = (0, getPagesCount_1.getPagesCount)(universalCharactersButtons.length, constants_1.pageSize);
@@ -134,6 +136,14 @@ const inlineKeyboardBigDollCharacters = (0, getInlineKeyboard_1.getInlineKeyboar
     column: 2,
     back: constants_1.charactersPoint,
 });
+const inlineKeyboardNoveltiesCharacters = (0, getInlineKeyboard_1.getInlineKeyboardWithPagination)({
+    buttonsArray: noveltiesCharactersButtons,
+    buttonType: constants_1.characterTypeNovelties,
+    pageSize: constants_1.pageSize,
+    pagesCount: noveltiesCharactersPagesCount,
+    column: 2,
+    back: constants_1.charactersPoint,
+});
 const allCharactersButtonsPagination = (0, getButtonsPagination_1.getInnerNameButtons)((0, getButtonsPagination_1.getButtonsPagination)({
     pagesCount: allCharactersPagesCount,
     buttonType: constants_1.characterTypeAll
@@ -154,11 +164,16 @@ const bigDollCharactersButtonsPagination = (0, getButtonsPagination_1.getInnerNa
     pagesCount: bigDollCharactersPagesCount,
     buttonType: constants_1.characterTypeBigDoll
 }));
+const noveltiesCharactersButtonsPagination = (0, getButtonsPagination_1.getInnerNameButtons)((0, getButtonsPagination_1.getButtonsPagination)({
+    pagesCount: noveltiesCharactersPagesCount,
+    buttonType: constants_1.characterTypeNovelties
+}));
 const allCharactersButtonsInnerName = (0, getButtonsPagination_1.getInnerNameButtons)(allCharactersButtons);
 const maleCharactersButtonsInnerName = (0, getButtonsPagination_1.getInnerNameButtons)(maleCharactersButtons);
 const femaleCharactersButtonsInnerName = (0, getButtonsPagination_1.getInnerNameButtons)(femaleCharactersButtons);
 const universalCharactersButtonsInnerName = (0, getButtonsPagination_1.getInnerNameButtons)(universalCharactersButtons);
 const bigDollCharactersButtonsInnerName = (0, getButtonsPagination_1.getInnerNameButtons)(bigDollCharactersButtons);
+const noveltiesCharactersButtonsInnerName = (0, getButtonsPagination_1.getInnerNameButtons)(noveltiesCharactersButtons);
 const inlineKeyboardShowMenu = (0, getInlineKeyboard_1.getInlineKeyboard)({
     buttonsArray: keyboardButtons_1.showsMenu,
     column: 2,
@@ -482,7 +497,7 @@ bot.callbackQuery(bigDollCharactersButtonsPagination, (ctx) => __awaiter(void 0,
     }
     yield ctx.answerCallbackQuery();
 }));
-bot.callbackQuery(programsButtonsPagination, (ctx) => __awaiter(void 0, void 0, void 0, function* () {
+bot.callbackQuery(noveltiesCharactersButtonsPagination, (ctx) => __awaiter(void 0, void 0, void 0, function* () {
     var _l, _m;
     if (ctx.session.using) {
         ctx.session.using = false;
@@ -494,6 +509,56 @@ bot.callbackQuery(programsButtonsPagination, (ctx) => __awaiter(void 0, void 0, 
     }
     const currentPage = ctx.callbackQuery.data.match(constants_1.findCurrentPage);
     if (!((_l = ctx.callbackQuery.message) === null || _l === void 0 ? void 0 : _l.text) && currentPage) {
+        const inlineKeyboard = (0, getInlineKeyboard_1.getInlineKeyboardWithPagination)({
+            buttonsArray: noveltiesCharactersButtons,
+            buttonType: constants_1.characterTypeNovelties,
+            pageSize: constants_1.pageSize,
+            pagesCount: noveltiesCharactersPagesCount,
+            column: 2,
+            back: constants_1.charactersPoint,
+            currentPage: Number(currentPage[0]),
+        });
+        yield ctx.reply(`<b>Страница ${currentPage[0]} из ${noveltiesCharactersPagesCount}</b>\n${pagesText_1.noveltiesCharactersPage}`, {
+            parse_mode: 'HTML',
+            reply_markup: inlineKeyboard,
+        });
+        yield ctx.deleteMessage();
+    }
+    if ((_m = ctx.callbackQuery.message) === null || _m === void 0 ? void 0 : _m.text) {
+        const pageText = ctx.callbackQuery.message.text;
+        const numberPageOnPage = pageText.match(constants_1.findNumberPageOnPage);
+        if (numberPageOnPage && currentPage) {
+            if (currentPage[0] !== numberPageOnPage[0]) {
+                const inlineKeyboard = (0, getInlineKeyboard_1.getInlineKeyboardWithPagination)({
+                    buttonsArray: noveltiesCharactersButtons,
+                    buttonType: constants_1.characterTypeNovelties,
+                    pageSize: constants_1.pageSize,
+                    pagesCount: noveltiesCharactersPagesCount,
+                    column: 2,
+                    back: constants_1.charactersPoint,
+                    currentPage: Number(currentPage[0]),
+                });
+                yield ctx.callbackQuery.message.editText(`<b>Страница ${currentPage[0]} из ${noveltiesCharactersPagesCount}</b>\n${pagesText_1.noveltiesCharactersPage}`, {
+                    parse_mode: 'HTML',
+                    reply_markup: inlineKeyboard,
+                });
+            }
+        }
+    }
+    yield ctx.answerCallbackQuery();
+}));
+bot.callbackQuery(programsButtonsPagination, (ctx) => __awaiter(void 0, void 0, void 0, function* () {
+    var _o, _p;
+    if (ctx.session.using) {
+        ctx.session.using = false;
+        ctx.session.currentItemNumber = 1;
+        ctx.session.itemsQuantity = 0;
+        ctx.session.currentType = '';
+        ctx.session.currentItem = '';
+        ctx.session.back = '';
+    }
+    const currentPage = ctx.callbackQuery.data.match(constants_1.findCurrentPage);
+    if (!((_o = ctx.callbackQuery.message) === null || _o === void 0 ? void 0 : _o.text) && currentPage) {
         const inlineKeyboard = (0, getInlineKeyboard_1.getInlineKeyboardWithPagination)({
             buttonsArray: keyboardButtons_1.programsMenu,
             buttonType: constants_1.programsPoint,
@@ -509,7 +574,7 @@ bot.callbackQuery(programsButtonsPagination, (ctx) => __awaiter(void 0, void 0, 
         });
         yield ctx.deleteMessage();
     }
-    if ((_m = ctx.callbackQuery.message) === null || _m === void 0 ? void 0 : _m.text) {
+    if ((_p = ctx.callbackQuery.message) === null || _p === void 0 ? void 0 : _p.text) {
         const pageText = ctx.callbackQuery.message.text;
         const numberPageOnPage = pageText.match(constants_1.findNumberPageOnPage);
         if (numberPageOnPage && currentPage) {
@@ -533,7 +598,7 @@ bot.callbackQuery(programsButtonsPagination, (ctx) => __awaiter(void 0, void 0, 
     yield ctx.answerCallbackQuery();
 }));
 bot.callbackQuery(additionsButtonsPagination, (ctx) => __awaiter(void 0, void 0, void 0, function* () {
-    var _o, _p;
+    var _q, _r;
     if (ctx.session.using) {
         ctx.session.using = false;
         ctx.session.currentItemNumber = 1;
@@ -543,7 +608,7 @@ bot.callbackQuery(additionsButtonsPagination, (ctx) => __awaiter(void 0, void 0,
         ctx.session.back = '';
     }
     const currentPage = ctx.callbackQuery.data.match(constants_1.findCurrentPage);
-    if (!((_o = ctx.callbackQuery.message) === null || _o === void 0 ? void 0 : _o.text) && currentPage) {
+    if (!((_q = ctx.callbackQuery.message) === null || _q === void 0 ? void 0 : _q.text) && currentPage) {
         const inlineKeyboard = (0, getInlineKeyboard_1.getInlineKeyboardWithPagination)({
             buttonsArray: keyboardButtons_1.additionsMenu,
             buttonType: constants_1.additionsPoint,
@@ -559,7 +624,7 @@ bot.callbackQuery(additionsButtonsPagination, (ctx) => __awaiter(void 0, void 0,
         });
         yield ctx.deleteMessage();
     }
-    if ((_p = ctx.callbackQuery.message) === null || _p === void 0 ? void 0 : _p.text) {
+    if ((_r = ctx.callbackQuery.message) === null || _r === void 0 ? void 0 : _r.text) {
         const pageText = ctx.callbackQuery.message.text;
         const numberPageOnPage = pageText.match(constants_1.findNumberPageOnPage);
         if (numberPageOnPage && currentPage) {
@@ -583,7 +648,7 @@ bot.callbackQuery(additionsButtonsPagination, (ctx) => __awaiter(void 0, void 0,
     yield ctx.answerCallbackQuery();
 }));
 bot.callbackQuery(masterClassesButtonsPagination, (ctx) => __awaiter(void 0, void 0, void 0, function* () {
-    var _q, _r;
+    var _s, _t;
     if (ctx.session.using) {
         ctx.session.using = false;
         ctx.session.currentItemNumber = 1;
@@ -593,7 +658,7 @@ bot.callbackQuery(masterClassesButtonsPagination, (ctx) => __awaiter(void 0, voi
         ctx.session.back = '';
     }
     const currentPage = ctx.callbackQuery.data.match(constants_1.findCurrentPage);
-    if (!((_q = ctx.callbackQuery.message) === null || _q === void 0 ? void 0 : _q.text) && currentPage) {
+    if (!((_s = ctx.callbackQuery.message) === null || _s === void 0 ? void 0 : _s.text) && currentPage) {
         const inlineKeyboard = (0, getInlineKeyboard_1.getInlineKeyboardWithPagination)({
             buttonsArray: keyboardButtons_1.masterClassesMenu,
             buttonType: constants_1.masterClassesPoint,
@@ -609,7 +674,7 @@ bot.callbackQuery(masterClassesButtonsPagination, (ctx) => __awaiter(void 0, voi
         });
         yield ctx.deleteMessage();
     }
-    if ((_r = ctx.callbackQuery.message) === null || _r === void 0 ? void 0 : _r.text) {
+    if ((_t = ctx.callbackQuery.message) === null || _t === void 0 ? void 0 : _t.text) {
         const pageText = ctx.callbackQuery.message.text;
         const numberPageOnPage = pageText.match(constants_1.findNumberPageOnPage);
         if (numberPageOnPage && currentPage) {
@@ -638,14 +703,15 @@ bot.callbackQuery([
     ...femaleCharactersButtonsInnerName,
     ...universalCharactersButtonsInnerName,
     ...bigDollCharactersButtonsInnerName,
+    ...noveltiesCharactersButtonsInnerName,
     ...programsButtonsInnerName,
     ...additionsButtonsInnerName,
     ...masterClassesButtonsInnerName,
 ], (ctx) => __awaiter(void 0, void 0, void 0, function* () {
-    var _s;
+    var _u;
     const currentGoodType = ctx.callbackQuery.data.match(constants_1.findCurrentType);
     const currentGood = ctx.callbackQuery.data.match(constants_1.findCurrentCharacter);
-    if ((_s = ctx.callbackQuery.message) === null || _s === void 0 ? void 0 : _s.text) {
+    if ((_u = ctx.callbackQuery.message) === null || _u === void 0 ? void 0 : _u.text) {
         const pageText = ctx.callbackQuery.message.text;
         const numberPageOnPage = pageText.match(constants_1.findNumberPageOnPage);
         if (numberPageOnPage && currentGoodType && currentGood) {
@@ -743,7 +809,7 @@ bot.callbackQuery([constants_1.prev, constants_1.next], (ctx) => __awaiter(void 
     yield ctx.answerCallbackQuery();
 }));
 bot.on('callback_query:data', (ctx) => __awaiter(void 0, void 0, void 0, function* () {
-    var _t;
+    var _v;
     switch (ctx.callbackQuery.data) {
         case constants_1.masterClassesPoint:
             if (ctx.from) {
@@ -790,7 +856,7 @@ bot.on('callback_query:data', (ctx) => __awaiter(void 0, void 0, void 0, functio
                 ctx.session.currentItem = '';
                 ctx.session.back = '';
             }
-            if (!((_t = ctx.callbackQuery.message) === null || _t === void 0 ? void 0 : _t.text)) {
+            if (!((_v = ctx.callbackQuery.message) === null || _v === void 0 ? void 0 : _v.text)) {
                 yield ctx.reply(pagesText_1.showsPage, {
                     parse_mode: 'HTML',
                     reply_markup: inlineKeyboardShowMenu,
@@ -864,6 +930,14 @@ bot.on('callback_query:data', (ctx) => __awaiter(void 0, void 0, void 0, functio
                 (yield ctx.callbackQuery.message.editText(`<b>Страница 1 из ${bigDollCharactersPagesCount}</b>\n${pagesText_1.bigDollCharactersPage}`, {
                     parse_mode: 'HTML',
                     reply_markup: inlineKeyboardBigDollCharacters,
+                }));
+            yield ctx.answerCallbackQuery();
+            break;
+        case constants_1.characterTypeNovelties:
+            ctx.callbackQuery.message &&
+                (yield ctx.callbackQuery.message.editText(`<b>Страница 1 из ${noveltiesCharactersPagesCount}</b>\n${pagesText_1.noveltiesCharactersPage}`, {
+                    parse_mode: 'HTML',
+                    reply_markup: inlineKeyboardNoveltiesCharacters,
                 }));
             yield ctx.answerCallbackQuery();
             break;

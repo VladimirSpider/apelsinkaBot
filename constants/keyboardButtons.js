@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.masterClassesMenu = exports.additionsMenu = exports.programsMenu = exports.showsMenu = exports.itemMenu = exports.charactersMenu = exports.characters = void 0;
+exports.masterClassesMenu = exports.additionsMenu = exports.programsMenu = exports.showsMenu = exports.itemMenu = exports.charactersMenu = exports.noveltiesCharacters = exports.characters = void 0;
 const constants_1 = require("./constants");
 ;
 exports.characters = [
@@ -80,6 +80,12 @@ exports.characters = [
     ['Баба Яга', 'babaYaga', { flag: constants_1.characterTypeUniversal }],
     ['Кейн', 'kane', { flag: constants_1.characterTypeMale }],
     ['Буба', 'booba', { flag: constants_1.characterTypeUniversal }],
+    ['Стич', 'stitch', { flag: constants_1.characterTypeMale, novelty: true }],
+    ['Лабубу', 'labubu', { flag: constants_1.characterTypeFemale, novelty: true }],
+];
+exports.noveltiesCharacters = [
+    ['Стич', 'stitch', { flag: constants_1.characterTypeMale, novelty: true }],
+    ['Лабубу', 'labubu', { flag: constants_1.characterTypeFemale, novelty: true }],
 ];
 exports.charactersMenu = [
     ['🎁 Все', constants_1.characterTypeAll],
@@ -87,6 +93,7 @@ exports.charactersMenu = [
     ['👦 Mужские образы', constants_1.characterTypeMale],
     ['👫 Универсальные образы', constants_1.characterTypeUniversal],
     ['🐥 Ростовые куклы', constants_1.characterTypeBigDoll],
+    ['💥 Новинки', constants_1.characterTypeNovelties],
     ['🤗 Больше фото', 'https://disk.yandex.ru/d/N7C7ts1D9fCvgg'],
 ];
 exports.itemMenu = [

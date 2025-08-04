@@ -9,6 +9,9 @@ const getCharactersButtons = (buttons, flag) => {
     else {
         const buttonsWithFlag = [];
         buttons.forEach(([name, innerName, label]) => {
+            if (typeof label === 'object' && label.novelty) {
+                buttonsWithFlag.push([String(name), `${flag}_${String(innerName)}`]);
+            }
             if (typeof label === 'object' && label.flag === flag) {
                 buttonsWithFlag.push([String(name), `${flag}_${String(innerName)}`]);
             }

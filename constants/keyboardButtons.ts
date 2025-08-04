@@ -5,11 +5,13 @@ import {
     characterTypeMale,
     characterTypeFemale,
     characterTypeUniversal,
-    characterTypeBigDoll
+    characterTypeBigDoll,
+    characterTypeNovelties
 } from "./constants";
 
 export interface ICharactersFlag {
     flag: string;
+    novelty?: boolean;
 };
 
 export const characters: (string | ICharactersFlag)[][] = [
@@ -89,6 +91,13 @@ export const characters: (string | ICharactersFlag)[][] = [
     ['Баба Яга', 'babaYaga', {flag: characterTypeUniversal}],
     ['Кейн', 'kane', {flag: characterTypeMale}],
     ['Буба', 'booba', {flag: characterTypeUniversal}],
+    ['Стич', 'stitch', {flag: characterTypeMale, novelty: true}],
+    ['Лабубу', 'labubu', {flag: characterTypeFemale, novelty: true}],
+];
+
+export const noveltiesCharacters: (string | ICharactersFlag)[][] = [
+    ['Стич', 'stitch', {flag: characterTypeMale, novelty: true}],
+    ['Лабубу', 'labubu', {flag: characterTypeFemale, novelty: true}],
 ];
 
 export const charactersMenu: string[][] = [
@@ -97,6 +106,7 @@ export const charactersMenu: string[][] = [
     ['👦 Mужские образы', characterTypeMale],
     ['👫 Универсальные образы', characterTypeUniversal],
     ['🐥 Ростовые куклы', characterTypeBigDoll],
+    ['💥 Новинки', characterTypeNovelties],
     ['🤗 Больше фото', 'https://disk.yandex.ru/d/N7C7ts1D9fCvgg'],
 ];
 

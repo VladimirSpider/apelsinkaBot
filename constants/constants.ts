@@ -30,6 +30,7 @@ export const characterTypeMale = 'male';
 export const characterTypeFemale = 'female';
 export const characterTypeUniversal = 'universal';
 export const characterTypeBigDoll = 'bigDoll';
+export const characterTypeNovelties = 'novelties';
 export const prev = 'prev';
 export const next = 'next';
 export const allItemPhotos = 'allPhotos';
