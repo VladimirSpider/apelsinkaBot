@@ -72,6 +72,26 @@ export const programsData: IGoodsData = {
             description: programsDescription,
             images: ['boom1'],
     },
+    'booms': {
+        name: 'Бумс',
+            description: programsDescription,
+            images: ['booms1'],
+    },
+    'disco': {
+        name: 'Диско',
+            description: programsDescription,
+            images: ['disco1'],
+    },
+    'questWithLabubu': {
+        name: 'Квест с Лабубу',
+            description: programsDescription,
+            images: ['questWithLabubu1'],
+    },
+    'schoolboyOrTroublemaker': {
+        name: 'ШКОЛЬНИК или ШКОДНИК?!',
+            description: programsDescription,
+            images: ['questWithLabubu1'],
+    },
     'customProgram': {
         name: 'Сборная программа',
             description: 'Вы просмотрели все праздничные пакеты и не остановились не на одном? Захотелось что-то с одной программы, а что-то с другой? Не беда! Мы составим только Ваш индивидуальный набор развлечений, который подойдёт именно Вам🤗🎉\n' +

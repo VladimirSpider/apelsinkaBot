@@ -139,6 +139,10 @@ export const programsMenu: string[][] = [
     ['📓 Тематический квест', 'programs_thematicQuest'],
     ['📓 Пузыряши', 'programs_bubbles'],
     ['📓 Бум', 'programs_boom'],
+    ['📓 Бумс', 'programs_booms'],
+    ['📓 Диско', 'programs_disco'],
+    ['📓 Квест с Лабубу', 'programs_questWithLabubu'],
+    ['📓 ШКОЛЬНИК или ШКОДНИК?!', 'programs_schoolboyOrTroublemaker'],
     ['📓 Сборная программа', 'programs_customProgram'],
 ];
 
@@ -170,4 +174,5 @@ export const masterClassesMenu: string[][] = [
     ['🪁 Мыльные пузыри', 'masterClasses_soapBubbles'],
     ['🪁 Роспись масок из папье-маше', 'masterClasses_paintingPapierMacheMasks'],
     ['🪁 Эбру - рисование на воде', 'masterClasses_ebruPaintingOnWater'],
+    ['🪁 Мыльная феерия', 'masterClasses_soapExtravaganza'],
 ];
