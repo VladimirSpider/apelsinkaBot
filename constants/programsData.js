@@ -67,6 +67,11 @@ exports.programsData = {
         description: programsDescription,
         images: ['bubbles1'],
     },
+    'boom': {
+        name: 'Бум',
+        description: programsDescription,
+        images: ['boom1'],
+    },
     'customProgram': {
         name: 'Сборная программа',
         description: 'Вы просмотрели все праздничные пакеты и не остановились не на одном? Захотелось что-то с одной программы, а что-то с другой? Не беда! Мы составим только Ваш индивидуальный набор развлечений, который подойдёт именно Вам🤗🎉\n' +

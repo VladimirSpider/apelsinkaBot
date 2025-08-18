@@ -138,6 +138,7 @@ export const programsMenu: string[][] = [
     ['📓 Умный праздник', 'programs_smartHoliday'],
     ['📓 Тематический квест', 'programs_thematicQuest'],
     ['📓 Пузыряши', 'programs_bubbles'],
+    ['📓 Бум', 'programs_boom'],
     ['📓 Сборная программа', 'programs_customProgram'],
 ];
 
