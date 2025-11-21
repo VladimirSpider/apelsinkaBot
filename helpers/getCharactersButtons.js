@@ -9,7 +9,7 @@ const getCharactersButtons = (buttons, flag) => {
     else {
         const buttonsWithFlag = [];
         buttons.forEach(([name, innerName, label]) => {
-            if (typeof label === 'object' && label.novelty) {
+            if (typeof label === 'object' && (label.novelty || label.newYear)) {
                 buttonsWithFlag.push([String(name), `${flag}_${String(innerName)}`]);
             }
             if (typeof label === 'object' && label.flag === flag) {

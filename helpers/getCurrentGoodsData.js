@@ -7,6 +7,8 @@ const programsData_1 = require("../constants/programsData");
 const showsData_1 = require("../constants/showsData");
 const additionsData_1 = require("../constants/additionsData");
 const masterClassesData_1 = require("../constants/masterClassesData");
+const charactersNewYearData_1 = require("../constants/charactersNewYearData");
+const programsNewYearData_1 = require("../constants/programsNewYearData");
 const getCurrentGoodsData = (type) => {
     if (type === constants_1.programsPoint)
         return programsData_1.programsData;
@@ -16,6 +18,10 @@ const getCurrentGoodsData = (type) => {
         return additionsData_1.additionsData;
     if (type === constants_1.masterClassesPoint)
         return masterClassesData_1.masterClassesData;
+    if (type === constants_1.characterTypeNewYear)
+        return charactersNewYearData_1.charactersNewYearData;
+    if (type === constants_1.programsNewYear)
+        return programsNewYearData_1.programsNewYearData;
     return charactersData_1.charactersData;
 };
 exports.getCurrentGoodsData = getCurrentGoodsData;
@@ -28,6 +34,10 @@ const getCurrentGoodsPath = (type) => {
         return constants_1.additionsPoint;
     if (type === constants_1.masterClassesPoint)
         return constants_1.masterClassesPoint;
+    if (type === constants_1.characterTypeNewYear)
+        return constants_1.characterTypeNewYear;
+    if (type === constants_1.programsNewYear)
+        return constants_1.programsNewYear;
     return constants_1.charactersPoint;
 };
 exports.getCurrentGoodsPath = getCurrentGoodsPath;

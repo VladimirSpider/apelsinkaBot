@@ -12,6 +12,26 @@ const programsDescription = `Программа сформирована опт�
 ПОЖАЛУЙСТА УТОЧНЯЙТЕ СТОИМОСТЬ ПРОГРАММЫ У МЕНЕДЖЕРА 📞
 `;
 exports.programsData = {
+    'notGames': {
+        name: 'НЕ ИГРЫ',
+        description: programsDescription,
+        images: ['notGames1'],
+    },
+    'thePerformanceCircusOfDreams': {
+        name: 'Спектакль "Цирк мечты"',
+        description: programsDescription,
+        images: ['thePerformanceCircusOfDreams1'],
+    },
+    'expressCongratulationsForAdults': {
+        name: 'Экспресс-поздравление для взрослых',
+        description: programsDescription,
+        images: ['expressCongratulationsForAdults1'],
+    },
+    'creativity': {
+        name: 'Креатив',
+        description: programsDescription,
+        images: ['creativity1'],
+    },
     'congratulationFromBigDoll': {
         name: 'Поздравление от ростовой куклы',
         description: programsDescription,
@@ -60,7 +80,7 @@ exports.programsData = {
     'thematicQuest': {
         name: 'Тематический квест',
         description: programsDescription,
-        images: ['thematicQuest1', 'thematicQuest2', 'thematicQuest3', 'thematicQuest4', 'thematicQuest5'],
+        images: ['thematicQuest1', 'thematicQuest2', 'thematicQuest3', 'thematicQuest4', 'thematicQuest5', 'thematicQuest6', 'thematicQuest7', 'thematicQuest8'],
     },
     'bubbles': {
         name: 'Пузыряши',
@@ -82,15 +102,10 @@ exports.programsData = {
         description: programsDescription,
         images: ['disco1'],
     },
-    'questWithLabubu': {
-        name: 'Квест с Лабубу',
-        description: programsDescription,
-        images: ['questWithLabubu1'],
-    },
     'schoolboyOrTroublemaker': {
         name: 'ШКОЛЬНИК или ШКОДНИК?!',
         description: programsDescription,
-        images: ['questWithLabubu1'],
+        images: ['schoolboyOrTroublemaker1'],
     },
     'customProgram': {
         name: 'Сборная программа',

@@ -6,12 +6,15 @@ import {
     characterTypeFemale,
     characterTypeUniversal,
     characterTypeBigDoll,
-    characterTypeNovelties
+    characterTypeNovelties,
+    characterTypeNewYear,
+    programsNewYear
 } from "./constants";
 
 export interface ICharactersFlag {
     flag: string;
     novelty?: boolean;
+    newYear?: boolean;
 };
 
 export const characters: (string | ICharactersFlag)[][] = [
@@ -92,12 +95,31 @@ export const characters: (string | ICharactersFlag)[][] = [
     ['Кейн', 'kane', {flag: characterTypeMale}],
     ['Буба', 'booba', {flag: characterTypeUniversal}],
     ['Стич', 'stitch', {flag: characterTypeMale, novelty: true}],
-    ['Лабубу', 'labubu', {flag: characterTypeFemale, novelty: true}],
+    ['Лабубу', 'labubu', {flag: characterTypeUniversal, novelty: true}],
 ];
 
 export const noveltiesCharacters: (string | ICharactersFlag)[][] = [
     ['Стич', 'stitch', {flag: characterTypeMale, novelty: true}],
-    ['Лабубу', 'labubu', {flag: characterTypeFemale, novelty: true}],
+    ['Лабубу', 'labubu', {flag: characterTypeUniversal, novelty: true}],
+];
+
+export const newYearCharacters: (string | ICharactersFlag)[][] = [
+    ['VIP пара', 'vipPair', {flag: characterTypeUniversal, newYear: true}],
+    ['Боярская пара', 'boyarPair', {flag: characterTypeUniversal, newYear: true}],
+    ['Синяя пара', 'bluePair', {flag: characterTypeUniversal, newYear: true}],
+    ['Расписная пара', 'paentedPair', {flag: characterTypeUniversal, newYear: true}],
+    ['Снеговичок', 'snowman', {flag: characterTypeBigDoll, newYear: true}],
+    ['Оленяшка', 'deer', {flag: characterTypeUniversal, newYear: true}],
+    ['Эльфы', 'elves', {flag: characterTypeUniversal, newYear: true}],
+    ['Гринч', 'grinch', {flag: characterTypeMale, newYear: true}],
+    ['Мишутка', 'bear', {flag: characterTypeBigDoll, newYear: true}],
+    ['Зайка', 'hare', {flag: characterTypeBigDoll, newYear: true}],
+    ['Лабубу', 'labubu', {flag: characterTypeUniversal, newYear: true}],
+    ['Фея', 'fairy', {flag: characterTypeFemale, newYear: true}],
+    ['Фьюжн', 'fusion', {flag: characterTypeUniversal, newYear: true}],
+    ['Артисты цирка', 'circusPerformers', {flag: characterTypeUniversal, newYear: true}],
+    ['Петруша', 'parsley', {flag: characterTypeFemale, newYear: true}],
+    ['Баба Яга', 'babaYaga', {flag: characterTypeUniversal, newYear: true}],
 ];
 
 export const charactersMenu: string[][] = [
@@ -127,6 +149,10 @@ export const showsMenu: string[][] = [
 ];
 
 export const programsMenu: string[][] = [
+    ['📓 НЕ ИГРЫ', 'programs_notGames'],
+    ['📓 Спектакль "Цирк мечты"', 'programs_thePerformanceCircusOfDreams'],
+    ['📓 Экспресс-поздравление для взрослых', 'programs_expressCongratulationsForAdults'],
+    ['📓 Креатив', 'programs_creativity'],
     ['📓 Поздравление от ростовой куклы', 'programs_congratulationFromBigDoll'],
     ['📓 Экспресс-поздравление', 'programs_expressCongratulations'],
     ['📓 Мини', 'programs_mini'],
@@ -141,7 +167,6 @@ export const programsMenu: string[][] = [
     ['📓 Бум', 'programs_boom'],
     ['📓 Бумс', 'programs_booms'],
     ['📓 Диско', 'programs_disco'],
-    ['📓 Квест с Лабубу', 'programs_questWithLabubu'],
     ['📓 ШКОЛЬНИК или ШКОДНИК?!', 'programs_schoolboyOrTroublemaker'],
     ['📓 Сборная программа', 'programs_customProgram'],
 ];
@@ -175,4 +200,9 @@ export const masterClassesMenu: string[][] = [
     ['🪁 Роспись масок из папье-маше', 'masterClasses_paintingPapierMacheMasks'],
     ['🪁 Эбру - рисование на воде', 'masterClasses_ebruPaintingOnWater'],
     ['🪁 Мыльная феерия', 'masterClasses_soapExtravaganza'],
+];
+
+export const newYearMenu: string[][] = [
+    ['🎄❄️ Новогодние программы 🎆🎇', programsNewYear],
+    ['🎅 Новогодние персонажи ☃️', characterTypeNewYear],
 ];

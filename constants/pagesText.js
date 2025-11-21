@@ -1,11 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.masterClassesPage = exports.additionsPage = exports.programsPage = exports.showsPage = exports.noveltiesCharactersPage = exports.bigDollCharactersPage = exports.universalCharactersPage = exports.femaleCharactersPage = exports.maleCharactersPage = exports.allCharactersPage = exports.charactersPage = exports.mainPage = void 0;
+exports.masterClassesPage = exports.additionsPage = exports.programsPage = exports.showsPage = exports.noveltiesCharactersPage = exports.bigDollCharactersPage = exports.universalCharactersPage = exports.femaleCharactersPage = exports.maleCharactersPage = exports.allCharactersPage = exports.charactersPage = exports.newYearCharactersPage = exports.newYearPage = exports.mainPage = void 0;
 exports.mainPage = `🎁Мы аниматорское агентство "Апельсинка" / Orange Creative Group!🎁
 
 🎈С помощью этого бота, Вы можете ознакомиться с перечнем наших услуг, которые помогут сделать Ваш праздник незабываемым!🎈
 
 🚕Мы выезжаем туда, куда только пожелаете!🚖`;
+exports.newYearPage = `
+<b>Новый год</b>🎄🎅
+
+Вы попали в самый волшебный и сказочный раздел нашего бота✨
+
+С помощью него вы сможете пригласить Дедушку Мороза и Снегурочку, а также других новогодних персонажей для встречи 2026 года - Оленя, Гринча, Эльфов и множество других новогодних героев 🐎✨🌲
+`;
+exports.newYearCharactersPage = `
+<b>Новогодние персонажи</b>🎄❄️
+
+Если Вы здесь, значит скоро Новый год и время знакомств с чудесами. А пока познакомьтесь с теми героями, которые погружают в сказку и несут новогодние чудеса всем людям 🎆
+`;
 exports.charactersPage = `
 <b>Персонажи</b>🧸
 

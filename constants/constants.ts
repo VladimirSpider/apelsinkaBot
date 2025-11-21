@@ -13,7 +13,7 @@ export const secretWordDetail = 'getInformationDetail';
 export const urlCheck = /^http/gi;
 export const urlTgCheck = /^tg/gi;
 export const findCurrentPage = /(?<=_)\d+/;
-export const findCurrentCharacter = /(?<=_)[a-zA-Z]+/;
+export const findCurrentGood = /(?<=_)[a-zA-Z]+/;
 export const findCurrentType = /[a-zA-Z]+(?=_)/;
 export const findNumberPageOnPage = /(?<=Страница\s)\d+/;
 export const pageSize = 8;
@@ -22,15 +22,18 @@ export const charactersPoint = 'characters';
 export const showsPoint = 'shows';
 
 export const programsPoint = 'programs';
+export const newYearPoint = 'newYear';
 export const additionsPoint = 'additions';
 export const masterClassesPoint = 'masterClasses';
 
+export const programsNewYear = 'programsNewYear';
 export const characterTypeAll = 'all';
 export const characterTypeMale = 'male';
 export const characterTypeFemale = 'female';
 export const characterTypeUniversal = 'universal';
 export const characterTypeBigDoll = 'bigDoll';
 export const characterTypeNovelties = 'novelties';
+export const characterTypeNewYear = 'charactersNewYear';
 export const prev = 'prev';
 export const next = 'next';
 export const allItemPhotos = 'allPhotos';

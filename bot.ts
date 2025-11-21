@@ -30,7 +30,7 @@ import {
     additionsPoint,
     masterClassesPoint,
     findCurrentPage,
-    findCurrentCharacter,
+    findCurrentGood,
     findCurrentType,
     findNumberPageOnPage,
     characterTypeAll,
@@ -43,6 +43,9 @@ import {
     next,
     secretWordGeneral,
     secretWordDetail,
+    newYearPoint,
+    programsNewYear,
+    characterTypeNewYear,
 } from "./constants/constants";
 import {
     getInlineKeyboard,
@@ -56,10 +59,14 @@ import {
     showsMenu,
     programsMenu,
     additionsMenu,
-    masterClassesMenu
+    masterClassesMenu,
+    newYearMenu,
+    newYearCharacters
 } from "./constants/keyboardButtons";
 import {
     mainPage,
+    newYearPage,
+    newYearCharactersPage,
     charactersPage,
     bigDollCharactersPage,
     noveltiesCharactersPage,
@@ -75,6 +82,7 @@ import {
 import { getButtonsPagination, getInnerNameButtons } from "./helpers/getButtonsPagination";
 import {getSticker} from "./helpers/getSticker";
 import { showsData } from "./constants/showsData";
+import { programsNewYearData } from "./constants/programsNewYearData";
 import {getCurrentGoodsData, getCurrentGoodsPath} from "./helpers/getCurrentGoodsData";
 
 interface SessionData {
@@ -148,6 +156,8 @@ async function responseTime(
 bot.use(responseTime);
 
 const mainInlineKeyBoard = new InlineKeyboard()
+    .text('🎅 Новый год 🎄', newYearPoint)
+    .row()
     .text('📓 Программы', programsPoint)
     .text('🧸 Персонажи', charactersPoint)
     .row()
@@ -168,6 +178,12 @@ const inlineKeyboardCharactersMenu = getInlineKeyboard({
     back: mainPagePoint,
 });
 
+const inlineKeyboardNewYearMenu = getInlineKeyboard({
+    buttonsArray: newYearMenu,
+    column: 1,
+    back: mainPagePoint,
+});
+
 const allCharactersButtons = getCharactersButtons(characters);
 const noveltiesCharactersButtons = getCharactersButtons(noveltiesCharacters, characterTypeNovelties);
 const maleCharactersButtons = getCharactersButtons(characters, characterTypeMale);
@@ -175,12 +191,16 @@ const femaleCharactersButtons = getCharactersButtons(characters, characterTypeFe
 const universalCharactersButtons = getCharactersButtons(characters, characterTypeUniversal);
 const bigDollCharactersButtons = getCharactersButtons(characters, characterTypeBigDoll);
 
+const newYearCharactersButtons = getCharactersButtons(newYearCharacters, characterTypeNewYear);
+
 const allCharactersPagesCount = getPagesCount(allCharactersButtons.length, pageSize);
 const noveltiesCharactersPagesCount = getPagesCount(noveltiesCharactersButtons.length, pageSize);
 const maleCharactersPagesCount = getPagesCount(maleCharactersButtons.length, pageSize);
 const femaleCharactersPagesCount = getPagesCount(femaleCharactersButtons.length, pageSize);
 const universalCharactersPagesCount = getPagesCount(universalCharactersButtons.length, pageSize);
 const bigDollCharactersPagesCount = getPagesCount(bigDollCharactersButtons.length, pageSize);
+
+const newYearCharactersPagesCount = getPagesCount(newYearCharactersButtons.length, pageSize);
 
 const inlineKeyboardAllCharacters = getInlineKeyboardWithPagination({
     buttonsArray: allCharactersButtons,
@@ -231,6 +251,15 @@ const inlineKeyboardNoveltiesCharacters = getInlineKeyboardWithPagination({
     back: charactersPoint,
 });
 
+const inlineKeyboardNewYearCharacters = getInlineKeyboardWithPagination({
+    buttonsArray: newYearCharactersButtons,
+    buttonType: characterTypeNewYear,
+    pageSize: pageSize,
+    pagesCount: newYearCharactersPagesCount,
+    column: 2,
+    back: newYearPoint,
+});
+
 const allCharactersButtonsPagination = getInnerNameButtons(
     getButtonsPagination({
         pagesCount: allCharactersPagesCount,
@@ -274,12 +303,21 @@ const noveltiesCharactersButtonsPagination = getInnerNameButtons(
     })
 );
 
+const newYearCharactersButtonsPagination = getInnerNameButtons(
+    getButtonsPagination({
+        pagesCount: newYearCharactersPagesCount,
+        buttonType: characterTypeNewYear
+    })
+);
+
 const allCharactersButtonsInnerName = getInnerNameButtons(allCharactersButtons);
 const maleCharactersButtonsInnerName = getInnerNameButtons(maleCharactersButtons);
 const femaleCharactersButtonsInnerName = getInnerNameButtons(femaleCharactersButtons);
 const universalCharactersButtonsInnerName = getInnerNameButtons(universalCharactersButtons);
 const bigDollCharactersButtonsInnerName = getInnerNameButtons(bigDollCharactersButtons);
 const noveltiesCharactersButtonsInnerName = getInnerNameButtons(noveltiesCharactersButtons);
+
+const newYearCharactersButtonsInnerName = getInnerNameButtons(newYearCharactersButtons);
 
 const inlineKeyboardShowMenu = getInlineKeyboard({
     buttonsArray: showsMenu,
@@ -696,6 +734,59 @@ bot.callbackQuery(noveltiesCharactersButtonsPagination, async (ctx) => {
     await ctx.answerCallbackQuery();
 });
 
+bot.callbackQuery(newYearCharactersButtonsPagination, async (ctx) => {
+    if(ctx.session.using) {
+        ctx.session.using = false;
+        ctx.session.currentItemNumber = 1;
+        ctx.session.itemsQuantity = 0;
+        ctx.session.currentType = '';
+        ctx.session.currentItem = '';
+        ctx.session.back = '';
+    }
+
+    const currentPage = ctx.callbackQuery.data.match(findCurrentPage);
+
+    if(!ctx.callbackQuery.message?.text && currentPage) {
+        const inlineKeyboard = getInlineKeyboardWithPagination({
+            buttonsArray: newYearCharactersButtons,
+            buttonType: characterTypeNewYear,
+            pageSize: pageSize,
+            pagesCount: newYearCharactersPagesCount,
+            column: 2,
+            back: newYearPoint,
+            currentPage: Number(currentPage[0]),
+        });
+        await ctx.reply(`<b>Страница ${currentPage[0]} из ${newYearCharactersPagesCount}</b>\n${newYearCharactersPage}`, {
+            parse_mode: 'HTML',
+            reply_markup: inlineKeyboard,
+        });
+        await ctx.deleteMessage();
+    }
+
+    if(ctx.callbackQuery.message?.text) {
+        const pageText = ctx.callbackQuery.message.text;
+        const numberPageOnPage = pageText.match(findNumberPageOnPage);
+        if(numberPageOnPage && currentPage) {
+            if(currentPage[0] !== numberPageOnPage[0]) {
+                const inlineKeyboard = getInlineKeyboardWithPagination({
+                    buttonsArray: newYearCharactersButtons,
+                    buttonType: characterTypeNewYear,
+                    pageSize: pageSize,
+                    pagesCount: newYearCharactersPagesCount,
+                    column: 2,
+                    back: newYearPoint,
+                    currentPage: Number(currentPage[0]),
+                });
+                await ctx.callbackQuery.message.editText(`<b>Страница ${currentPage[0]} из ${newYearCharactersPagesCount}</b>\n${newYearCharactersPage}`, {
+                    parse_mode: 'HTML',
+                    reply_markup: inlineKeyboard,
+                });
+            }
+        }
+    }
+    await ctx.answerCallbackQuery();
+});
+
 bot.callbackQuery(programsButtonsPagination, async (ctx) => {
     if(ctx.session.using) {
         ctx.session.using = false;
@@ -862,17 +953,17 @@ bot.callbackQuery([
     ...universalCharactersButtonsInnerName,
     ...bigDollCharactersButtonsInnerName,
     ...noveltiesCharactersButtonsInnerName,
+    ...newYearCharactersButtonsInnerName,
     ...programsButtonsInnerName,
     ...additionsButtonsInnerName,
     ...masterClassesButtonsInnerName,
     ]
     , async (ctx) => {
     const currentGoodType = ctx.callbackQuery.data.match(findCurrentType);
-    const currentGood = ctx.callbackQuery.data.match(findCurrentCharacter);
+    const currentGood = ctx.callbackQuery.data.match(findCurrentGood);
     if(ctx.callbackQuery.message?.text) {
         const pageText = ctx.callbackQuery.message.text;
         const numberPageOnPage = pageText.match(findNumberPageOnPage);
-
         if(numberPageOnPage && currentGoodType && currentGood) {
 
             const inlineKeyboardGoodMenu = getInlineKeyboard({
@@ -920,7 +1011,7 @@ bot.callbackQuery([...showsButtonsInnerName], async (ctx) => {
     });
 
     const scroll = ctx.emoji`${"scroll"}`;
-    const sparkler = ctx.emoji`${"sparkler"}`;
+    const partyPopper = ctx.emoji`${"party_popper"}`;
 
     ctx.session.using = true;
     ctx.session.currentType = showsPoint;
@@ -930,12 +1021,42 @@ bot.callbackQuery([...showsButtonsInnerName], async (ctx) => {
 
     await ctx.replyWithPhoto(new InputFile(`./images/shows/${currentShow}1.jpg`), {
         caption: `<b>Фото 1 из ${photosNumber}</b>
-                    \n${sparkler}<b>${showsData[currentShow].name}</b>
+                    \n${partyPopper}<b>${showsData[currentShow].name}</b>
                     \n${scroll}<b>Описание:</b>\n${showsData[currentShow].description}`,
         parse_mode: 'HTML',
         reply_markup: inlineKeyboardShowMenu,
     });
 
+    await ctx.answerCallbackQuery();
+    await ctx.deleteMessage();
+});
+
+bot.callbackQuery(programsNewYear, async (ctx) => {
+    const currentProgramNewYear = ctx.callbackQuery.data;
+    const photosNumber = programsNewYearData[currentProgramNewYear].images.length;
+
+    const inlineKeyboardProgramNewYearMenu = getInlineKeyboard({
+        buttonsArray: itemMenu,
+        column: 2,
+        back: newYearPoint,
+    });
+
+    const scroll = ctx.emoji`${"scroll"}`;
+    const partyPopper = ctx.emoji`${"party_popper"}`;
+
+    ctx.session.using = true;
+    ctx.session.currentType = programsNewYear;
+    ctx.session.currentItem = currentProgramNewYear;
+    ctx.session.itemsQuantity = photosNumber;
+    ctx.session.back = newYearPoint;
+
+    await ctx.replyWithPhoto(new InputFile(`./images/programsNewYear/${currentProgramNewYear}1.jpg`), {
+        caption: `<b>Фото 1 из ${photosNumber}</b>
+                    \n${partyPopper}<b>${programsNewYearData[currentProgramNewYear].name}</b>
+                    \n${scroll}<b>Описание:</b>\n${programsNewYearData[currentProgramNewYear].description}`,
+        parse_mode: 'HTML',
+        reply_markup: inlineKeyboardProgramNewYearMenu,
+    });
     await ctx.answerCallbackQuery();
     await ctx.deleteMessage();
 });
@@ -960,11 +1081,10 @@ bot.callbackQuery([prev, next], async (ctx) => {
         const currentItemNumber = ctx.session.currentItemNumber;
         const itemsQuantity = ctx.session.itemsQuantity;
         const currentType = ctx.session.currentType;
-
         const scroll = ctx.emoji`${"scroll"}`;
         const partyPopper = ctx.emoji`${"party_popper"}`;
 
-        const inlineKeyboardShowMenu = getInlineKeyboard({
+        const inlineKeyboardGoodMenu = getInlineKeyboard({
             buttonsArray: itemMenu,
             column: 2,
             back: ctx.session.back,
@@ -980,7 +1100,7 @@ bot.callbackQuery([prev, next], async (ctx) => {
             parse_mode: 'HTML',
         });
         await ctx.editMessageMedia(goodPhoto, {
-            reply_markup: inlineKeyboardShowMenu
+            reply_markup: inlineKeyboardGoodMenu
         });
 
         await ctx.answerCallbackQuery();
@@ -991,14 +1111,51 @@ bot.callbackQuery([prev, next], async (ctx) => {
 
 bot.on('callback_query:data', async (ctx) => {
     switch (ctx.callbackQuery.data) {
-        case masterClassesPoint:
+        case mainPagePoint:
+            const hibiscus = ctx.emoji`${"hibiscus"}`;
+            const userName: string = ctx.from ? ctx.from.first_name : 'дорогой пользователь';
+
+            ctx.callbackQuery.message &&
+            await ctx.callbackQuery.message.editText(
+                `Привет <b>${userName}${hibiscus}</b>\n\n ${mainPage}`
+                , {
+                    parse_mode: 'HTML',
+                    reply_markup: mainInlineKeyBoard,
+                });
+            await ctx.answerCallbackQuery();
+            break;
+        case newYearPoint:
             if(ctx.from) {
                 addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
             }
+            if(ctx.session.using) {
+                ctx.session.using = false;
+                ctx.session.currentItemNumber = 1;
+                ctx.session.itemsQuantity = 0;
+                ctx.session.currentType = '';
+                ctx.session.currentItem = '';
+                ctx.session.back = '';
+            }
+            if(!ctx.callbackQuery.message?.text) {
+                await ctx.reply(newYearPage, {
+                    parse_mode: 'HTML',
+                    reply_markup: inlineKeyboardNewYearMenu,
+                });
+                await ctx.deleteMessage();
+            } else {
+                ctx.callbackQuery.message &&
+                await ctx.callbackQuery.message.editText(newYearPage, {
+                    parse_mode: 'HTML',
+                    reply_markup: inlineKeyboardNewYearMenu,
+                });
+            }
+            await ctx.answerCallbackQuery();
+            break;
+        case characterTypeNewYear:
             ctx.callbackQuery.message &&
-            await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${masterClassesPagesCount}</b>\n${masterClassesPage}`, {
+            await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${newYearCharactersPagesCount}</b>\n${newYearCharactersPage}`, {
                 parse_mode: 'HTML',
-                reply_markup: inlineKeyboardMasterClasses,
+                reply_markup: inlineKeyboardNewYearCharacters,
             });
             await ctx.answerCallbackQuery();
             break;
@@ -1010,17 +1167,6 @@ bot.on('callback_query:data', async (ctx) => {
             await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${programsPagesCount}</b>\n${programsPage}`, {
                 parse_mode: 'HTML',
                 reply_markup: inlineKeyboardPrograms,
-            });
-            await ctx.answerCallbackQuery();
-            break;
-        case additionsPoint:
-            if(ctx.from) {
-                addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
-            }
-            ctx.callbackQuery.message &&
-            await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${additionsPagesCount}</b>\n${additionsPage}`, {
-                parse_mode: 'HTML',
-                reply_markup: inlineKeyboardAdditions,
             });
             await ctx.answerCallbackQuery();
             break;
@@ -1051,6 +1197,28 @@ bot.on('callback_query:data', async (ctx) => {
             }
             await ctx.answerCallbackQuery();
             break;
+        case additionsPoint:
+            if(ctx.from) {
+                addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
+            }
+            ctx.callbackQuery.message &&
+            await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${additionsPagesCount}</b>\n${additionsPage}`, {
+                parse_mode: 'HTML',
+                reply_markup: inlineKeyboardAdditions,
+            });
+            await ctx.answerCallbackQuery();
+            break;
+        case masterClassesPoint:
+            if(ctx.from) {
+                addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
+            }
+            ctx.callbackQuery.message &&
+            await ctx.callbackQuery.message.editText(`<b>Страница 1 из ${masterClassesPagesCount}</b>\n${masterClassesPage}`, {
+                parse_mode: 'HTML',
+                reply_markup: inlineKeyboardMasterClasses,
+            });
+            await ctx.answerCallbackQuery();
+            break;
         case charactersPoint:
             if(ctx.from) {
                 addUser(ctx.from.id, ctx.from.username, ctx.from.first_name);
@@ -1060,19 +1228,6 @@ bot.on('callback_query:data', async (ctx) => {
                 parse_mode: 'HTML',
                 reply_markup: inlineKeyboardCharactersMenu,
             });
-            await ctx.answerCallbackQuery();
-            break;
-        case mainPagePoint:
-            const hibiscus = ctx.emoji`${"hibiscus"}`;
-            const userName: string = ctx.from ? ctx.from.first_name : 'дорогой пользователь';
-
-            ctx.callbackQuery.message &&
-            await ctx.callbackQuery.message.editText(
-                `Привет <b>${userName}${hibiscus}</b>\n\n ${mainPage}`
-                , {
-                    parse_mode: 'HTML',
-                    reply_markup: mainInlineKeyBoard,
-                });
             await ctx.answerCallbackQuery();
             break;
         case characterTypeAll:

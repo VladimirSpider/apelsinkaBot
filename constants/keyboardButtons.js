@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.masterClassesMenu = exports.additionsMenu = exports.programsMenu = exports.showsMenu = exports.itemMenu = exports.charactersMenu = exports.noveltiesCharacters = exports.characters = void 0;
+exports.newYearMenu = exports.masterClassesMenu = exports.additionsMenu = exports.programsMenu = exports.showsMenu = exports.itemMenu = exports.charactersMenu = exports.newYearCharacters = exports.noveltiesCharacters = exports.characters = void 0;
 const constants_1 = require("./constants");
 ;
 exports.characters = [
@@ -81,11 +81,29 @@ exports.characters = [
     ['Кейн', 'kane', { flag: constants_1.characterTypeMale }],
     ['Буба', 'booba', { flag: constants_1.characterTypeUniversal }],
     ['Стич', 'stitch', { flag: constants_1.characterTypeMale, novelty: true }],
-    ['Лабубу', 'labubu', { flag: constants_1.characterTypeFemale, novelty: true }],
+    ['Лабубу', 'labubu', { flag: constants_1.characterTypeUniversal, novelty: true }],
 ];
 exports.noveltiesCharacters = [
     ['Стич', 'stitch', { flag: constants_1.characterTypeMale, novelty: true }],
-    ['Лабубу', 'labubu', { flag: constants_1.characterTypeFemale, novelty: true }],
+    ['Лабубу', 'labubu', { flag: constants_1.characterTypeUniversal, novelty: true }],
+];
+exports.newYearCharacters = [
+    ['VIP пара', 'vipPair', { flag: constants_1.characterTypeUniversal, newYear: true }],
+    ['Боярская пара', 'boyarPair', { flag: constants_1.characterTypeUniversal, newYear: true }],
+    ['Синяя пара', 'bluePair', { flag: constants_1.characterTypeUniversal, newYear: true }],
+    ['Расписная пара', 'paentedPair', { flag: constants_1.characterTypeUniversal, newYear: true }],
+    ['Снеговичок', 'snowman', { flag: constants_1.characterTypeBigDoll, newYear: true }],
+    ['Оленяшка', 'deer', { flag: constants_1.characterTypeUniversal, newYear: true }],
+    ['Эльфы', 'elves', { flag: constants_1.characterTypeUniversal, newYear: true }],
+    ['Гринч', 'grinch', { flag: constants_1.characterTypeMale, newYear: true }],
+    ['Мишутка', 'bear', { flag: constants_1.characterTypeBigDoll, newYear: true }],
+    ['Зайка', 'hare', { flag: constants_1.characterTypeBigDoll, newYear: true }],
+    ['Лабубу', 'labubu', { flag: constants_1.characterTypeUniversal, newYear: true }],
+    ['Фея', 'fairy', { flag: constants_1.characterTypeFemale, newYear: true }],
+    ['Фьюжн', 'fusion', { flag: constants_1.characterTypeUniversal, newYear: true }],
+    ['Артисты цирка', 'circusPerformers', { flag: constants_1.characterTypeUniversal, newYear: true }],
+    ['Петруша', 'parsley', { flag: constants_1.characterTypeFemale, newYear: true }],
+    ['Баба Яга', 'babaYaga', { flag: constants_1.characterTypeUniversal, newYear: true }],
 ];
 exports.charactersMenu = [
     ['🎁 Все', constants_1.characterTypeAll],
@@ -111,6 +129,10 @@ exports.showsMenu = [
     ['🎁 Неоновое шоу', 'neonShow'],
 ];
 exports.programsMenu = [
+    ['📓 НЕ ИГРЫ', 'programs_notGames'],
+    ['📓 Спектакль "Цирк мечты"', 'programs_thePerformanceCircusOfDreams'],
+    ['📓 Экспресс-поздравление для взрослых', 'programs_expressCongratulationsForAdults'],
+    ['📓 Креатив', 'programs_creativity'],
     ['📓 Поздравление от ростовой куклы', 'programs_congratulationFromBigDoll'],
     ['📓 Экспресс-поздравление', 'programs_expressCongratulations'],
     ['📓 Мини', 'programs_mini'],
@@ -125,7 +147,6 @@ exports.programsMenu = [
     ['📓 Бум', 'programs_boom'],
     ['📓 Бумс', 'programs_booms'],
     ['📓 Диско', 'programs_disco'],
-    ['📓 Квест с Лабубу', 'programs_questWithLabubu'],
     ['📓 ШКОЛЬНИК или ШКОДНИК?!', 'programs_schoolboyOrTroublemaker'],
     ['📓 Сборная программа', 'programs_customProgram'],
 ];
@@ -157,4 +178,8 @@ exports.masterClassesMenu = [
     ['🪁 Роспись масок из папье-маше', 'masterClasses_paintingPapierMacheMasks'],
     ['🪁 Эбру - рисование на воде', 'masterClasses_ebruPaintingOnWater'],
     ['🪁 Мыльная феерия', 'masterClasses_soapExtravaganza'],
+];
+exports.newYearMenu = [
+    ['🎄❄️ Новогодние программы 🎆🎇', constants_1.programsNewYear],
+    ['🎅 Новогодние персонажи ☃️', constants_1.characterTypeNewYear],
 ];
